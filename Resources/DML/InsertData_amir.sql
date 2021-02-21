@@ -67,18 +67,17 @@ COPY stg_olist_closed_deals_dataset
 /*Update your location of the files here*/
 	FROM 'C:\Users\sonof\UCSDProjects\Team-A-Kaggle_Brazilian_E_commerce\Resources/olist_closed_deals_dataset.csv' DELIMITER ',' CSV HEADER;
 
-select * from stg_olist_closed_deals_dataset
+--select * from stg_olist_closed_deals_dataset
 
 
 -- Insert data into stg_product_category_name_translation ---------------------------------
-COPY stg_olist_marketing_qualified_leads_dataset
-(
+COPY stg_olist_marketing_qualified_leads_dataset (
     mql_id,
     first_contact_date,
     landing_page_id,
     origin
 )
 /*Update your location of the files here*/
-	FROM 'C:\Users\sonof\UCSDProjects\Team-A-Kaggle_Brazilian_E_commerce\Resources/olist_marketing_qualified_leads_dataset.csv' DELIMITER ',' CSV HEADER;
+FROM 'C:\Users\sonof\UCSDProjects\Team-A-Kaggle_Brazilian_E_commerce\Resources/olist_marketing_qualified_leads_dataset.csv' DELIMITER ',' CSV HEADER;
 
-select * from stg_olist_marketing_qualified_leads_dataset
+-- select * from stg_olist_marketing_qualified_leads_dataset
