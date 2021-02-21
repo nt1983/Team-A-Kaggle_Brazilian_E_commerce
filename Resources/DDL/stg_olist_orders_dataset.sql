@@ -7,10 +7,10 @@ CREATE TABLE public.stg_olist_orders_dataset
     order_id text COLLATE pg_catalog."default",
     customer_id text COLLATE pg_catalog."default",
     order_status text COLLATE pg_catalog."default",
-    order_purchase_timestamp date,
-    order_approved_at date,
-    order_delivered_carrier_date date,
-    order_delivered_customer_date date,
+    order_purchase_timestamp text COLLATE pg_catalog."default",
+    order_approved_at text COLLATE pg_catalog."default",
+    order_delivered_carrier_date text COLLATE pg_catalog."default",
+    order_delivered_customer_date text COLLATE pg_catalog."default",
     order_estimated_delivery_date date
 )
 
