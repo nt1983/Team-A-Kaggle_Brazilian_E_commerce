@@ -10,7 +10,7 @@ CREATE TABLE public.stg_olist_order_reviews_dataset
     review_comment_title text COLLATE pg_catalog."default",
     review_comment_message text COLLATE pg_catalog."default",
     review_creation_date date,
-    review_answer_timestamp date
+    review_answer_timestamp text COLLATE pg_catalog."default"
 )
 
 TABLESPACE pg_default;
