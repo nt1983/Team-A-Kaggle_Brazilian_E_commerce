@@ -1,6 +1,8 @@
-DROP TABLE if exists d_date;
+/* script to create the date dimension*/
 
-CREATE TABLE d_date
+DROP TABLE if exists date_dim;
+
+CREATE TABLE date_dim
 (
   date_dim_id              INT NOT NULL,
   date_actual              DATE NOT NULL,
@@ -33,14 +35,14 @@ CREATE TABLE d_date
   weekend_indr             BOOLEAN NOT NULL
 );
 
-ALTER TABLE public.d_date ADD CONSTRAINT d_date_date_dim_id_pk PRIMARY KEY (date_dim_id);
+ALTER TABLE public.date_dim ADD CONSTRAINT d_date_date_dim_id_pk PRIMARY KEY (date_dim_id);
 
 CREATE INDEX d_date_date_actual_idx
-  ON d_date(date_actual);
+  ON date_dim(date_actual);
 
 COMMIT;
 
-INSERT INTO d_date
+INSERT INTO date_dim
 SELECT TO_CHAR(datum, 'yyyymmdd')::INT AS date_dim_id,
        datum AS date_actual,
        EXTRACT(EPOCH FROM datum) AS epoch,
