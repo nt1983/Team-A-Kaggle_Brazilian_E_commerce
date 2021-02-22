@@ -281,3 +281,58 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.stg_olist_orders_dataset
     OWNER to postgres;	
+	
+-- Table: public.stg_olist_order_items_dataset
+
+DROP TABLE IF EXISTS public.stg_olist_order_items_dataset;
+
+CREATE TABLE public.stg_olist_order_items_dataset
+(
+    order_id text COLLATE pg_catalog."default",
+    order_item_id integer,
+    product_id text COLLATE pg_catalog."default",
+    seller_id text COLLATE pg_catalog."default",
+    shipping_limit_date text COLLATE pg_catalog."default",
+    price numeric,
+    freight_value numeric
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.stg_olist_order_items_dataset
+    OWNER to postgres;	
+	
+-- Table: public.stg_olist_customer_dataset
+
+DROP TABLE IF EXISTS public.stg_olist_customer_dataset;
+
+CREATE TABLE public.stg_olist_customer_dataset
+(
+    customer_id text COLLATE pg_catalog."default",
+    customer_unique_id text COLLATE pg_catalog."default",
+    customer_zip_code_prefix text COLLATE pg_catalog."default",
+    customer_city text COLLATE pg_catalog."default",
+    customer_state text COLLATE pg_catalog."default"
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.stg_olist_customer_dataset
+    OWNER to postgres;	
+	
+-- Table: public.stg_olist_geolocation_dataset
+DROP TABLE IF EXISTS public.stg_olist_geolocation_dataset;
+
+CREATE TABLE public.stg_olist_geolocation_dataset
+(
+    geolocation_zip_code_prefix text COLLATE pg_catalog."default",
+    geolocation_lat double precision,
+    geolocation_lng double precision,
+    geolocation_city text COLLATE pg_catalog."default",
+    geolocation_state text COLLATE pg_catalog."default"
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.stg_olist_geolocation_dataset
+    OWNER to postgres;
