@@ -236,6 +236,7 @@ CREATE TABLE public.order_items
     product_id character varying(50) COLLATE pg_catalog."default",
     seller_id character varying(50) COLLATE pg_catalog."default",
     shipping_limit_date character varying(20) COLLATE pg_catalog."default",
+	sk_shipping_limit_dt int,
     price real,
     freight_value real,
     create_date date,
