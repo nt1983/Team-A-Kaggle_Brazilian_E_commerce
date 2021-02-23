@@ -14,7 +14,7 @@ CREATE TABLE public.products
     product_height_cm integer,
     product_width_cm integer,
 	CREATE_DATE date,
-    CREATED_BY character varying(60)[] COLLATE pg_catalog."default",
+    CREATED_BY character varying(60) COLLATE pg_catalog."default",
     CHANGED_DATE date,
     CHANGED_BY character varying(60) COLLATE pg_catalog."default",
     CONSTRAINT products_pkey PRIMARY KEY (product_id)
@@ -37,7 +37,7 @@ CREATE TABLE public.sellers
     seller_city character varying(30) COLLATE pg_catalog."default",
     seller_state character varying(2) COLLATE pg_catalog."default",
     CREATE_DATE date,
-    CREATED_BY character varying(60)[] COLLATE pg_catalog."default",
+    CREATED_BY character varying(60) COLLATE pg_catalog."default",
     CHANGED_DATE date,
     CHANGED_BY character varying(60) COLLATE pg_catalog."default",
     CONSTRAINT sellers_pkey PRIMARY KEY (seller_id)
@@ -57,7 +57,7 @@ CREATE TABLE public.product_category
     product_category_name character varying(40) COLLATE pg_catalog."default",
     product_category_name_en character varying(50) COLLATE pg_catalog."default",
     CREATE_DATE date,
-    CREATED_BY character varying(60)[] COLLATE pg_catalog."default",
+    CREATED_BY character varying(60) COLLATE pg_catalog."default",
     CHANGED_DATE date,
     CHANGED_BY character varying(60) COLLATE pg_catalog."default"
 )
@@ -79,7 +79,7 @@ CREATE TABLE public.mkt_qualified_leads
     landing_page_id character varying(40) COLLATE pg_catalog."default",
     origin character varying(20) COLLATE pg_catalog."default",
     CREATE_DATE date,
-    CREATED_BY character varying(60)[] COLLATE pg_catalog."default",
+    CREATED_BY character varying(60) COLLATE pg_catalog."default",
     CHANGED_DATE date,
     CHANGED_BY character varying(60) COLLATE pg_catalog."default",
     CONSTRAINT mkt_qualified_leads_pkey PRIMARY KEY (mql_id)
@@ -129,13 +129,13 @@ DROP TABLE IF EXISTS public.order_payments;
 
 CREATE TABLE public.order_payments
 (
-    Order_id character varying(40)[] COLLATE pg_catalog."default",
+    order_id character varying(40) COLLATE pg_catalog."default",
     payment_sequential smallint,
-    payment_type character varying(15)[] COLLATE pg_catalog."default",
+    payment_type character varying(15) COLLATE pg_catalog."default",
     payment_installments integer,
     payment_value real,
     CREATE_DATE date,
-    CREATED_BY character varying(60)[] COLLATE pg_catalog."default",
+    CREATED_BY character varying(60) COLLATE pg_catalog."default",
     CHANGED_DATE date,
     CHANGED_BY character varying(60) COLLATE pg_catalog."default"
 )
@@ -152,19 +152,19 @@ DROP TABLE IF EXISTS public.order_reviews;
 
 CREATE TABLE public.order_reviews
 (
-    review_id character varying(40)[] COLLATE pg_catalog."default",
-    order_id character varying(40)[] COLLATE pg_catalog."default",
+    review_id character varying(40) COLLATE pg_catalog."default",
+    order_id character varying(40) COLLATE pg_catalog."default",
     review_score smallint,
-    review_comment_title character varying(50)[] COLLATE pg_catalog."default",
+    review_comment_title character varying(50) COLLATE pg_catalog."default",
     review_comment_message text COLLATE pg_catalog."default",
     review_creation_date date,
     sk_review_creation_dt integer,
     review_answer_timestamp date,
     sk_review_answer_dt integer,
     CREATE_DATE date,
-    CREATED_BY character varying(60)[] COLLATE pg_catalog."default",
+    CREATED_BY character varying(60) COLLATE pg_catalog."default",
     CHANGED_DATE date,
-    CHANGED_BY character varying(60)[] COLLATE pg_catalog."default"
+    CHANGED_BY character varying(60) COLLATE pg_catalog."default"
 )
 
 TABLESPACE pg_default;
@@ -179,9 +179,9 @@ DROP TABLE IF EXISTS public.orders;
 
 CREATE TABLE public.orders
 (
-    order_id character varying(40)[] COLLATE pg_catalog."default",
-    customer_id character varying(40)[] COLLATE pg_catalog."default",
-    order_status character varying(15)[] COLLATE pg_catalog."default",
+    order_id character varying(40) COLLATE pg_catalog."default",
+    customer_id character varying(40) COLLATE pg_catalog."default",
+    order_status character varying(15) COLLATE pg_catalog."default",
     order_purchase_timestamp date,
     sk_order_purchase_dt integer,
     order_approved_at date,
@@ -193,9 +193,9 @@ CREATE TABLE public.orders
     order_estimated_delivery_date date,
     sk_order_estimated_delivery_dt integer,
     CREATE_DATE date,
-    CREATED_BY character varying(60)[] COLLATE pg_catalog."default",
+    CREATED_BY character varying(60) COLLATE pg_catalog."default",
     CHANGED_DATE date,
-    CHANGED_BY character varying(60)[] COLLATE pg_catalog."default"
+    CHANGED_BY character varying(60) COLLATE pg_catalog."default"
 )
 
 TABLESPACE pg_default;
