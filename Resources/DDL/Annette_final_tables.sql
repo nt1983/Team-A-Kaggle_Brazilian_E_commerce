@@ -43,20 +43,18 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.order_items
     OWNER to postgres;
+	
+-- Table: public.geolocation
 
--- Table: public.order_items
+-- DROP TABLE public.geolocation;
 
--- DROP TABLE IF EXISTS public.order_items;
-
-CREATE TABLE public.order_items
+CREATE TABLE public.geolocation
 (
-    order_id character varying(50) COLLATE pg_catalog."default",
-    order_item_id integer,
-    product_id character varying(50) COLLATE pg_catalog."default",
-    seller_id character varying(50) COLLATE pg_catalog."default",
-    shipping_limit_date character varying(20) COLLATE pg_catalog."default",
-    price real,
-    freight_value real,
+    geolocation_zip_code_prefix character varying(50) COLLATE pg_catalog."default",
+    geolocation_lat double precision,
+    geolocation_lng double precision,
+    geolocation_city character varying(50) COLLATE pg_catalog."default",
+    geolocation_state character varying(2) COLLATE pg_catalog."default",
     create_date date,
     created_by character varying(10) COLLATE pg_catalog."default",
     changed_date date,
@@ -65,5 +63,6 @@ CREATE TABLE public.order_items
 
 TABLESPACE pg_default;
 
-ALTER TABLE public.order_items
+ALTER TABLE public.geolocation
     OWNER to postgres;
+	
