@@ -5,7 +5,7 @@
 CREATE TABLE public.order_payments
 (
     "Order_id" character varying(40)[] COLLATE pg_catalog."default",
-    payment smallint,
+    payment_sequential smallint,
     payment_type character varying(15)[] COLLATE pg_catalog."default",
     payment_installments integer,
     payment_value real,
