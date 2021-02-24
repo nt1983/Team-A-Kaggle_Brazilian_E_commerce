@@ -104,10 +104,10 @@ CREATE TABLE public.stg_olist_orders_dataset
     order_id text COLLATE pg_catalog."default",
     customer_id text COLLATE pg_catalog."default",
     order_status text COLLATE pg_catalog."default",
-    order_purchase_timestamp date,
-    order_approved_at date,
-    order_delivered_carrier_date date,
-    order_delivered_customer_date date,
+    order_purchase_timestamp text,
+    order_approved_at text,
+    order_delivered_carrier_date text,
+    order_delivered_customer_date text,
     order_estimated_delivery_date date
 )
 
@@ -128,7 +128,7 @@ CREATE TABLE public.stg_olist_order_reviews_dataset
     review_comment_title text COLLATE pg_catalog."default",
     review_comment_message text COLLATE pg_catalog."default",
     review_creation_date date,
-    review_answer_timestamp date
+    review_answer_timestamp text
 )
 
 TABLESPACE pg_default;
