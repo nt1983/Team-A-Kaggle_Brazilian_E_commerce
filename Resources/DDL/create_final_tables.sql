@@ -25,6 +25,11 @@ TABLESPACE pg_default;
 ALTER TABLE public.products
     OWNER to postgres;
 	
+CREATE TRIGGER update_row_modified_function_
+    BEFORE INSERT OR UPDATE 
+    ON public.products
+    FOR EACH ROW
+    EXECUTE PROCEDURE public.update_row_modified_function_();	
 	
 -- Table: public.sellers
 
@@ -34,7 +39,7 @@ CREATE TABLE public.sellers
 (
     seller_id character varying(40) COLLATE pg_catalog."default" NOT NULL,
     seller_zip_code_prefix character varying(12) COLLATE pg_catalog."default",
-    seller_city character varying(30) COLLATE pg_catalog."default",
+    seller_city character varying(50) COLLATE pg_catalog."default",
     seller_state character varying(2) COLLATE pg_catalog."default",
     CREATE_DATE date,
     CREATED_BY character varying(60) COLLATE pg_catalog."default",
@@ -47,6 +52,12 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.sellers
     OWNER to postgres;	
+
+CREATE TRIGGER update_row_modified_function_
+    BEFORE INSERT OR UPDATE 
+    ON public.sellers
+    FOR EACH ROW
+    EXECUTE PROCEDURE public.update_row_modified_function_();
 	
 -- Table: public.product_category
 
@@ -54,7 +65,7 @@ DROP TABLE IF EXISTS public.product_category;
 
 CREATE TABLE public.product_category
 (
-    product_category_name character varying(40) COLLATE pg_catalog."default",
+    product_category_name character varying(50) COLLATE pg_catalog."default",
     product_category_name_en character varying(50) COLLATE pg_catalog."default",
     CREATE_DATE date,
     CREATED_BY character varying(60) COLLATE pg_catalog."default",
@@ -66,6 +77,11 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.product_category
     OWNER to postgres;
+CREATE TRIGGER update_row_modified_function_
+    BEFORE INSERT OR UPDATE 
+    ON public.product_category
+    FOR EACH ROW
+    EXECUTE PROCEDURE public.update_row_modified_function_();
 	
 -- Table: public.mkt_qualified_leads
 
@@ -89,7 +105,12 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.mkt_qualified_leads
     OWNER to postgres;
-	
+
+CREATE TRIGGER update_row_modified_function_
+    BEFORE INSERT OR UPDATE 
+    ON public.mkt_qualified_leads
+    FOR EACH ROW
+    EXECUTE PROCEDURE public.update_row_modified_function_();		
 -- Table: public.mkt_closed_deals
 
 DROP TABLE IF EXISTS public.mkt_closed_deals;
@@ -100,7 +121,7 @@ CREATE TABLE public.mkt_closed_deals
     seller_id character varying(40) COLLATE pg_catalog."default",
     sdr_id character varying(40) COLLATE pg_catalog."default",
     sr_id character varying(40) COLLATE pg_catalog."default",
-    won_date date,
+    won_date timestamp,
     sk_won_dt integer,
     business_segment character varying(50) COLLATE pg_catalog."default",
     lead_type character varying(50) COLLATE pg_catalog."default",
@@ -109,8 +130,8 @@ CREATE TABLE public.mkt_closed_deals
     has_gtin boolean,
     average_stock character varying(20) COLLATE pg_catalog."default",
     business_type character varying(20) COLLATE pg_catalog."default",
-    declared_prod_cat_size integer,
-    declared_monthly_revenue integer,
+    declared_prod_cat_size float,
+    declared_monthly_revenue float,
 	CREATE_DATE date,
     CREATED_BY character varying(60) COLLATE pg_catalog."default",
     CHANGED_DATE date,
@@ -122,7 +143,12 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.mkt_closed_deals
     OWNER to postgres;	
-
+	
+CREATE TRIGGER update_row_modified_function_
+    BEFORE INSERT OR UPDATE 
+    ON public.mkt_closed_deals
+    FOR EACH ROW
+    EXECUTE PROCEDURE public.update_row_modified_function_();	
 -- Table: public.order_payments
 
 DROP TABLE IF EXISTS public.order_payments;
@@ -144,6 +170,12 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.order_payments
     OWNER to postgres;
+	
+CREATE TRIGGER update_row_modified_function_
+    BEFORE INSERT OR UPDATE 
+    ON public.order_payments
+    FOR EACH ROW
+    EXECUTE PROCEDURE public.update_row_modified_function_();		
 --------------------------------------------------------------------
 
 -- Table: public.order_reviews
@@ -159,7 +191,7 @@ CREATE TABLE public.order_reviews
     review_comment_message text COLLATE pg_catalog."default",
     review_creation_date date,
     sk_review_creation_dt integer,
-    review_answer_timestamp date,
+    review_answer_timestamp timestamp,
     sk_review_answer_dt integer,
     CREATE_DATE date,
     CREATED_BY character varying(60) COLLATE pg_catalog."default",
@@ -171,6 +203,12 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.order_reviews
     OWNER to postgres;
+	
+CREATE TRIGGER update_row_modified_function_
+    BEFORE INSERT OR UPDATE 
+    ON public.order_reviews
+    FOR EACH ROW
+    EXECUTE PROCEDURE public.update_row_modified_function_();	
 --------------------------------------------------------------------
 
 -- Table: public.orders
@@ -182,13 +220,13 @@ CREATE TABLE public.orders
     order_id character varying(40) COLLATE pg_catalog."default",
     customer_id character varying(40) COLLATE pg_catalog."default",
     order_status character varying(15) COLLATE pg_catalog."default",
-    order_purchase_timestamp date,
+    order_purchase_timestamp timestamp,
     sk_order_purchase_dt integer,
-    order_approved_at date,
+    order_approved_at timestamp,
     sk_order_approved_at_dt integer,
-    order_delivered_carrier_date date,
+    order_delivered_carrier_date timestamp,
     sk_order_delivered_carrier_dt integer,
-    order_delivered_customer_date date,
+    order_delivered_customer_date timestamp,
     sk_order_delivered_customer_dt integer,
     order_estimated_delivery_date date,
     sk_order_estimated_delivery_dt integer,
@@ -203,6 +241,11 @@ TABLESPACE pg_default;
 ALTER TABLE public.orders
     OWNER to postgres;	
 	
+CREATE TRIGGER update_row_modified_function_
+    BEFORE INSERT OR UPDATE 
+    ON public.orders
+    FOR EACH ROW
+    EXECUTE PROCEDURE public.update_row_modified_function_();		
 -- Table: public.customer
 
 DROP TABLE IF EXISTS public.customer;
@@ -224,7 +267,11 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.customer
     OWNER to postgres;
-	
+CREATE TRIGGER update_row_modified_function_
+    BEFORE INSERT OR UPDATE 
+    ON public.customer
+    FOR EACH ROW
+    EXECUTE PROCEDURE public.update_row_modified_function_();		
 -- Table: public.order_items
 
 DROP TABLE IF EXISTS public.order_items;
@@ -235,7 +282,7 @@ CREATE TABLE public.order_items
     order_item_id integer,
     product_id character varying(50) COLLATE pg_catalog."default",
     seller_id character varying(50) COLLATE pg_catalog."default",
-    shipping_limit_date character varying(20) COLLATE pg_catalog."default",
+    shipping_limit_date timestamp,
 	sk_shipping_limit_dt int,
     price real,
     freight_value real,
@@ -249,6 +296,11 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.order_items
     OWNER to postgres;
+CREATE TRIGGER update_row_modified_function_
+    BEFORE INSERT OR UPDATE 
+    ON public.order_items
+    FOR EACH ROW
+    EXECUTE PROCEDURE public.update_row_modified_function_();	
 	
 -- Table: public.geolocation
 
@@ -271,3 +323,8 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.geolocation
     OWNER to postgres;	
+CREATE TRIGGER update_row_modified_function_
+    BEFORE INSERT OR UPDATE 
+    ON public.geolocation
+    FOR EACH ROW
+    EXECUTE PROCEDURE public.update_row_modified_function_();	
