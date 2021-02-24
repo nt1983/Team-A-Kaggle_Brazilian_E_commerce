@@ -1,0 +1,161 @@
+SCHEMA file https://app.quickdatabasediagrams.com/#/
+
+Products
+-
+product_id varchar(40)
+product_category_name varchar(50) FK >- product_category.product_category_name_en
+product_name_lenght int
+product_description_lenght int
+product_photos_qty int
+product_weight_g int
+product_length_cm int
+product_height_cm int
+product_width_cm int
+CREATE_DATE date
+CREATED_BY varchar(60)
+CHANGED_DATE date
+CHANGED_BY varchar(60)
+
+sellers
+-
+seller_id varchar(40)
+seller_zip_code_prefix varchar(12) FK >- geolocation.geolocation_zip_code_prefix
+seller_city varchar(30)
+seller_state varchar(2)
+CREATE_DATE date
+CREATED_BY varchar(60)
+CHANGED_DATE date
+CHANGED_BY varchar(60)
+
+product_category
+-
+product_category_name varchar(40)
+product_category_name_en varchar(50)
+CREATE_DATE date
+CREATED_BY varchar(60)
+CHANGED_DATE date
+CHANGED_BY varchar(60)
+
+
+
+order_payments
+-
+order_id varchar(40) FK >- orders.order_id
+payment_sequential smallint
+payment_type varchar(15)
+payment_installments int
+payment_value real
+CREATE_DATE date
+CREATED_BY varchar(60)
+CHANGED_DATE date
+CHANGED_BY varchar(60)
+
+order_reviews
+-
+review_id varchar(40)
+order_id varchar(40) FK >- orders.order_id
+review_score smallint
+review_comment_title varchar(50)
+review_comment_message text
+review_creation_date date
+sk_review_creation_dt int
+review_answer_timestamp date
+sk_review_answer_dt int
+CREATE_DATE date
+CREATED_BY varchar(60)
+CHANGED_DATE date
+CHANGED_BY varchar(60)
+
+orders
+-
+order_id varchar(40) FK >- order_items.order_id
+customer_id varchar(40) FK >- customer.customer_id
+order_status varchar(15)
+order_purchase_timestamp date
+sk_order_purchase_dt int
+order_approved_at date
+sk_order_approved_at_dt int
+order_delivered_carrier_date date
+sk_order_delivered_carrier_dt int
+order_delivered_customer_date date
+sk_order_delivered_customer_dt int
+order_estimated_delivery_date date
+sk_order_estimated_delivery_dt int
+CREATE_DATE date
+CREATED_BY varchar(60)
+CHANGED_DATE date
+CHANGED_BY varchar(60)
+
+customer
+-
+customer_id varchar(50)
+customer_unique_id varchar(50)
+customer_zip_code_prefix varchar(11) FK >- geolocation.geolocation_zip_code_prefix
+customer_city varchar(50)
+customer_state varchar(2)
+create_date date
+created_by varchar(10)
+changed_date date
+changed_by varchar(10)
+order_items
+
+order_items
+-
+order_id varchar(50)
+order_item_id int
+product_id varchar(50) FK >- Products.product_id
+seller_id varchar(50) FK >- sellers.seller_id
+shipping_limit_date varchar(20)
+sk_shipping_limit_dt int
+price real
+freight_value real
+create_date date
+created_by varchar(10)
+changed_date date
+changed_by varchar(10)
+
+geolocation
+-
+geolocation_zip_code_prefix varchar(50)
+geolocation_lat double
+geolocation_lng double
+geolocation_city varchar(50)
+geolocation_state varchar(2)
+create_date date
+created_by varchar(10)
+changed_date date
+changed_by varchar(10)
+
+mkt_qualified_leads
+-
+mql_id varchar(40)
+first_contact_date date
+sk_first_contact_dt int
+landing_page_id varchar(40)
+origin varchar(20)
+CREATE_DATE date
+CREATED_BY varchar(60)
+CHANGED_DATE date
+CHANGED_BY varchar(60)
+
+mkt_closed_deals
+-
+mql_id varchar(40)
+seller_id varchar(40)
+sdr_id varchar(40)
+sr_id varchar(40)
+won_date date
+sk_won_dt int
+business_segment varchar(50)
+lead_type varchar(50)
+lead_behaviour_profile varchar(50)
+has_company boolean
+has_gtin boolean
+average_stock varchar(20)
+business_type varchar(20)
+declared_prod_cat_size int
+declared_monthly_revenue int
+CREATE_DATE date
+CREATED_BY varchar(60)
+CHANGED_DATE date
+CHANGED_BY varchar(60) 
