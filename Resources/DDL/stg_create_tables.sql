@@ -1,10 +1,5 @@
-<<<<<<< Updated upstream
--- Table: public.stg_olist_closed_deals_dataset
-DROP TABLE If exists  public.stg_olist_closed_deals_dataset;
-=======
 -- 1 Table: public.stg_olist_closed_deals_dataset
 DROP TABLE IF EXISTS public.stg_olist_closed_deals_dataset;
->>>>>>> Stashed changes
 
 CREATE TABLE public.stg_olist_closed_deals_dataset
 (
@@ -29,13 +24,7 @@ TABLESPACE pg_default;
 ALTER TABLE public.stg_olist_closed_deals_dataset
     OWNER to postgres;
 	
-<<<<<<< Updated upstream
-	-- Table: public.stg_olist_marketing_qualified_leads_dataset
-
-DROP TABLE If exists  public.stg_olist_marketing_qualified_leads_dataset;
-=======
--- 2 Table: public.stg_olist_marketing_qualified_leads_dataset
->>>>>>> Stashed changes
+-- Table: public.stg_olist_marketing_qualified_leads_dataset
 
 DROP TABLE IF EXISTS public.stg_olist_marketing_qualified_leads_dataset;
 CREATE TABLE public.stg_olist_marketing_qualified_leads_dataset
@@ -53,12 +42,8 @@ ALTER TABLE public.stg_olist_marketing_qualified_leads_dataset
 	
 -- 3 Table: public.stg_olist_products_dataset
 
-<<<<<<< Updated upstream
-DROP TABLE If exists  public.stg_olist_products_dataset;
-=======
-DROP TABLE IF EXISTS public.stg_olist_products_dataset;
->>>>>>> Stashed changes
 
+DROP TABLE IF EXISTS public.stg_olist_products_dataset;
 CREATE TABLE public.stg_olist_products_dataset
 (
     product_id text COLLATE pg_catalog."default",
@@ -77,13 +62,11 @@ TABLESPACE pg_default;
 ALTER TABLE public.stg_olist_products_dataset
     OWNER to postgres;
 
-<<<<<<< Updated upstream
 -- Table: public.stg_olist_sellers_dataset
 
 DROP TABLE If exists public.stg_olist_sellers_dataset;
-=======
+
 -- 4 Table: public.stg_olist_sellers_dataset
->>>>>>> Stashed changes
 
 DROP TABLE IF EXISTS public.stg_olist_sellers_dataset;
 CREATE TABLE public.stg_olist_sellers_dataset
@@ -100,13 +83,7 @@ ALTER TABLE public.stg_olist_sellers_dataset
     OWNER to postgres;
 
 -- 5 Table: public.stg_product_category_name_translation
-
-<<<<<<< Updated upstream
-DROP TABLE If exists  public.stg_product_category_name_translation;
-=======
 DROP TABLE IF EXISTS public.stg_product_category_name_translation;
->>>>>>> Stashed changes
-
 CREATE TABLE public.stg_product_category_name_translation
 (
     product_category_name text COLLATE pg_catalog."default",
@@ -118,40 +95,19 @@ TABLESPACE pg_default;
 ALTER TABLE public.stg_product_category_name_translation
     OWNER to postgres;	
 	
-<<<<<<< Updated upstream
--- Table: public.stg_olist_sellers_dataset
 
-DROP TABLE If exists  public.stg_olist_sellers_dataset;
-
-CREATE TABLE public.stg_olist_sellers_dataset
-(
-    product_category_name text COLLATE pg_catalog."default",
-    product_category_name_english text COLLATE pg_catalog."default"
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE public.stg_olist_sellers_dataset
-    OWNER to postgres;	
-	
 -- Table: public.stg_olist_orders_dataset
-
 DROP TABLE If exists public.stg_olist_orders_dataset;
-=======
--- 6 Table: public.stg_olist_orders_dataset
-
-DROP TABLE IF EXISTS public.stg_olist_orders_dataset;
->>>>>>> Stashed changes
 
 CREATE TABLE public.stg_olist_orders_dataset
 (
     order_id text COLLATE pg_catalog."default",
     customer_id text COLLATE pg_catalog."default",
     order_status text COLLATE pg_catalog."default",
-    order_purchase_timestamp date,
-    order_approved_at date,
-    order_delivered_carrier_date date,
-    order_delivered_customer_date date,
+    order_purchase_timestamp text,
+    order_approved_at text,
+    order_delivered_carrier_date text,
+    order_delivered_customer_date text,
     order_estimated_delivery_date date
 )
 
@@ -162,11 +118,7 @@ ALTER TABLE public.stg_olist_orders_dataset
 	
 -- 7 Table: public.stg_olist_order_reviews_dataset
 
-<<<<<<< Updated upstream
 DROP TABLE If exists public.stg_olist_order_reviews_dataset;
-=======
-DROP TABLE IF EXISTS public.stg_olist_order_reviews_dataset;
->>>>>>> Stashed changes
 
 CREATE TABLE public.stg_olist_order_reviews_dataset
 (
@@ -176,7 +128,7 @@ CREATE TABLE public.stg_olist_order_reviews_dataset
     review_comment_title text COLLATE pg_catalog."default",
     review_comment_message text COLLATE pg_catalog."default",
     review_creation_date date,
-    review_answer_timestamp date
+    review_answer_timestamp text
 )
 
 TABLESPACE pg_default;
@@ -186,11 +138,7 @@ ALTER TABLE public.stg_olist_order_reviews_dataset
 	
 -- 8 Table: public.stg_olist_order_payments_dataset
 
-<<<<<<< Updated upstream
-DROP TABLE If exists public.stg_olist_order_payments_dataset;
-=======
 DROP TABLE IF EXISTS public.stg_olist_order_payments_dataset;
->>>>>>> Stashed changes
 
 CREATE TABLE public.stg_olist_order_payments_dataset
 (
